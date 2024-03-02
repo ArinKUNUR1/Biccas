@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@mixin medium() {
+    @media (max-width: 1500px) {
+        @content;
+    }
+}
+
+@mixin laptop() {
+    @media (max-width: 1100px) {
+        @content;
+    }
+}
+
+@mixin mobile() {
+    @media (max-width: 900px) {
+        @content;
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$green: #54BD95;
+$black: #191A15;
+$gray: #A6A6A6;
+$grey: #F9F8FE;
+
+body {
+    font-family: 'Inter';
+    padding: 40px 130px;
+
+    @include laptop {
+        padding: 20px 40px;
+    }
+
+    @include mobile {
+        padding: 10px 20px;
+    }
+}
+
+// Header
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    h1 {
+        color: $green;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px;
+
+        @include mobile {
+            font-size: 30px;
+        }
+    }
+
+    nav{
+        display: flex;
+        gap: 40px;
+        a {
+            text-decoration: none;
+            color: $gray;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+
+            &:nth-child(1) {
+                color: #000;
+            }
+        }
+    }
+
+    .buttons{
+        button {
+            color: $gray;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            background: none;
+            cursor: pointer;
+
+            &:nth-child(2) {
+                background: $green;
+                color: white;
+            }
+        }
+    }
+
+    .nav-btn {
+        display: none;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background: $green;
+        color: white;
+        cursor: pointer;
+    }
+
+    @include laptop() {
+        nav,
+        div {
+            display: none;
+        }
+
+        .nav-btn {
+            display: block;
+        }
+    }
+}
+
+// Hero
+#hero {
+    display: flex;
+    gap: 35px;
+    margin-top: 140px;
+
+    @include medium {
+        flex-direction: column;
+        margin-top: 70px;
+        gap: 50px;
+
+        h1 {
+            font-size: 50px;
+        }
+    }
+
+    @include mobile {
+        margin-top: 50px;
+
+        h1 {
+            font-size: 40px !important;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .info {
+        h1 {
+            color: $black;
+            font-size: 80px;
+            font-weight: 700;
+            line-height: 90px;
+        }
+
+        img {
+            margin: 30px 0 50px;
+        }
+
+        p {
+            font-weight: 500px;
+            max-width: 461px;
+            line-height: 30px
+        }
+
+        .buttons {
+            margin-top: 50px;
+            display: flex;
+            gap: 40px;
+
+            button {
+                padding: 20px 30px;
+                border: none;
+                background: none;
+                border-radius: 40px;
+                cursor: pointer;
+
+                &:nth-child(1) {
+                    background: $green;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .banner {
+        display: flex;
+        justify-content: center;
+
+        img {
+            object-fit: contain;
+        }
+    }
+}
+
+// Reklam Alanı
+#brand-area {
+    margin-top: 130px;
+
+    h1 {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .brands {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 50px;
+
+        @include laptop {
+            justify-content: center;
+        }
+
+        .brand {
+            margin-top: 62px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            p {
+                color: $gray;
+                font-size: 30px;
+
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// Partner Alanı
+#partner-area {
+    display: flex;
+    gap: 43px;
+    margin-top: 191px;
+
+    @include mobile {
+        flex-direction: column;
+        gap: 100px;
+    }
+    
+    .info {
+        h1 {
+            color: $black;
+            font-size: 50px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        p {
+            color: $gray;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 30px;
+        }
+
+        .points-area {
+            margin-top: 73px;
+            display: flex;
+            gap: 80px;
+
+            .point {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+
+                p {
+                    color: $black;
+                    font-size: 18px;
+                    font-weight: 700;
+                    line-height: normal;
+                }
+
+                .name {
+                    color: $gray;
+                }
+            }
+        }
+    }
+
+    .image-info {
+        display: flex;
+        flex-direction: column;
+        gap: 33px;
+
+        .info {
+            display: flex;
+            align-items: start;
+            gap: 36px;
+            
+            .info-text {
+                display: flex;
+                flex-direction: column;
+                gap: -26px;
+
+                h1 {
+                    color: $black;
+                    font-size: 28px;
+                    font-weight: 700;
+                }
+
+                p {
+                    color: #A6A6A6;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 30px;
+                }
+            }
+        }
+    }
+}
+
+// Özelliklerimiz Alanı
+#features-area {
+    margin-top: 190px;
+    display: flex;
+    flex-direction: column;
+    gap: 74px;
+
+    @include medium {
+        .card-img {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+    }
+
+    .card-info {
+        display: flex;
+        align-items: center;
+        gap: 113px;
+
+        h2 {
+            color: $black;
+            font-size: 50px;
+            font-weight: 600px;
+
+            @include laptop {
+                font-size: 10px ;
+            }
+        }
+
+        p {        
+            color: $gray;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        button {
+            border-radius: 70px;
+            border: none;
+            background: $green;
+            padding: 17px 30px;
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 30px;
+            white-space: nowrap;
+        }
+    }
+
+    .card-img {
+        display: flex;
+        gap: 44px;
+
+        .card {
+            img {
+               border-radius: 20px;
+               background: $grey;
+               width: 364px;
+               height: 430px;
+            }
+
+            h3 {
+                color: $black;
+                font-size: 30px;
+                font-weight: 600;
+                line-height: 30px;
+                margin: 30px 0 20px;
+            }
+
+            p {
+                color: $gray;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 30px;
+            }
+        }
+    }
+}
